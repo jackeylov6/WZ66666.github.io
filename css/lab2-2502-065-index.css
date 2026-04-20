@@ -1,0 +1,202 @@
+/* 全局初始化 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding-top: 70px; /* 避开固定导航 */
+    background: #f5f5f5;
+}
+
+/* --------------------
+(2) 盒子模型：内容区+内边距+边框+外边距
+-------------------- */
+.header,
+.left-bar,
+.middle-bar,
+.right-bar,
+.book-item,
+.hot-item {
+    /* 盒子模型全部设置 */
+    padding: 15px;     /* 内边距 */
+    border: 1px solid #ddd; /* 边框 */
+    margin: 10px 0;    /* 外边距 */
+    background: #fff;
+    border-radius: 4px;
+}
+
+/* --------------------
+头部：浮动 + 固定定位
+-------------------- */
+.header {
+    width: 100%;
+    height: 60px;
+    background: #2d8cf0;
+    color: white;
+    border: none;
+    margin: 0;
+    position: fixed;     /* 固定定位 */
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.logo {
+    float: left;        /* 浮动 */
+    font-size: 22px;
+    line-height: 30px;
+}
+
+.logo img {
+    width: 30px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.top-nav {
+    float: right;       /* 浮动 */
+}
+
+.top-nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    line-height: 30px;
+    cursor: pointer;    /* pointer小手 */
+}
+
+.top-nav a:hover {
+    color: #ff0;
+}
+
+/* --------------------
+三栏浮动布局
+-------------------- */
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.left-bar {
+    width: 200px;
+    float: left;
+    position: relative; /* 相对定位 */
+    left: 0;
+    top: 0;
+}
+
+.left-bar ul {
+    list-style: none;
+}
+
+.left-bar li {
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.left-bar li:hover {
+    background-color: #f0f0f0;
+    padding-left: 20px;
+}
+
+.left-bar li.active {
+    background-color: #2d8cf0;
+    color: white;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+.middle-bar {
+    width: 760px;
+    float: left;
+    margin-left: 15px;
+}
+
+.right-bar {
+    width: 200px;
+    float: right;
+    position: fixed;     /* 固定定位 */
+    right: 20px;
+    top: 80px;
+    background: #fff7cc;
+    border-color: #ffbd17;
+}
+
+/* --------------------
+图书展示：父相子绝
+-------------------- */
+.book-show {
+    overflow: hidden;
+}
+
+.book-item {
+    width: 170px;
+    height: 220px;
+    float: left;
+    margin: 5px;
+    text-align: center;
+    position: relative; /* 父：相对定位 */
+}
+
+.book-item img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+/* 子：绝对定位 */
+.book-tip {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    padding: 2px 5px;
+    font-size: 12px;
+}
+
+/* 鼠标悬停显示/隐藏 */
+.book-hover {
+    display: none;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.book-item:hover .book-hover {
+    display: block;
+    cursor: pointer;
+}
+
+/* --------------------
+热门推荐：浮动
+-------------------- */
+.hot-book {
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.hot-item {
+    width: 167px;
+    float: left;
+    text-align: center;
+    margin: 5px;
+    cursor: pointer;
+}
+
+/* --------------------
+表格样式
+-------------------- */
+.new-book {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+}
