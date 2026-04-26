@@ -3,22 +3,25 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
-    padding-top: 70px; /* 避开固定导航 */
+    padding-top: 70px;
     background: #f5f5f5;
 }
+
 .header,
 .left-bar,
 .middle-bar,
 .right-bar,
 .book-item,
 .hot-item {
-    padding: 15px; 
+    padding: 15px;
     border: 1px solid #ddd;
-    margin: 10px 0;  
+    margin: 10px 0;
     background: #fff;
     border-radius: 4px;
 }
+
 .header {
     width: 100%;
     height: 60px;
@@ -26,14 +29,14 @@ body {
     color: white;
     border: none;
     margin: 0;
-    position: fixed;    
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 999;
 }
 
 .logo {
-    float: left;      
+    float: left;
     font-size: 22px;
     line-height: 30px;
 }
@@ -45,7 +48,7 @@ body {
 }
 
 .top-nav {
-    float: right;    
+    float: right;
 }
 
 .top-nav a {
@@ -53,7 +56,7 @@ body {
     text-decoration: none;
     margin-left: 20px;
     line-height: 30px;
-    cursor: pointer;  
+    cursor: pointer;
 }
 
 .top-nav a:hover {
@@ -105,7 +108,7 @@ body {
 .right-bar {
     width: 200px;
     float: right;
-    position: fixed;   
+    position: fixed;
     right: 20px;
     top: 80px;
     background: #fff7cc;
@@ -122,7 +125,7 @@ body {
     float: left;
     margin: 5px;
     text-align: center;
-    position: relative; 
+    position: relative;
 }
 
 .book-item img {
@@ -140,6 +143,7 @@ body {
     padding: 2px 5px;
     font-size: 12px;
 }
+
 .book-hover {
     display: none;
     background: rgba(0,0,0,0.6);
@@ -174,3 +178,134 @@ table {
     width: 100%;
     text-align: center;
 }
+
+/* 登录注册按钮 */
+.login-btn,
+.register-btn {
+    margin-left: 15px;
+    padding: 5px 10px;
+    border: 1px solid white;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover,
+.register-btn:hover {
+    background: white;
+    color: #2d8cf0;
+}
+
+/* 模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    overflow: hidden;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #333;
+}
+
+.close-btn {
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #2d8cf0;
+    box-shadow: 0 0 0 2px rgba(45,140,240,0.2);
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: #2d8cf0;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #1e78d6;
+}
+
+.form-footer {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+.form-footer a {
+    color: #2d8cf0;
+    text-decoration: none;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
