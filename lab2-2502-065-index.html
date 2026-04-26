@@ -17,6 +17,8 @@
         <a href="#">热门推荐</a>
         <a href="#">新书上市</a>
         <a href="#">关于我们</a>
+        <a href="#" class="login-btn">登录</a>
+        <a href="#" class="register-btn">注册</a>
     </nav>
 </header>
 <div class="container">
@@ -87,13 +89,154 @@
         
         menuItems.forEach(item => {
             item.addEventListener('click', function() {
-
                 menuItems.forEach(i => i.classList.remove('active'));
-
                 this.classList.add('active');
             });
         });
     });
 </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // 登录注册功能
+        const loginBtn = document.querySelector('.login-btn');
+        const registerBtn = document.querySelector('.register-btn');
+        const loginModal = document.querySelector('.login-modal');
+        const registerModal = document.querySelector('.register-modal');
+        const closeBtns = document.querySelectorAll('.close-btn');
+        const switchRegister = document.querySelector('.switch-register');
+        const switchLogin = document.querySelector('.switch-login');
+        const loginForm = document.querySelector('.login-form');
+        const registerForm = document.querySelector('.register-form');
+
+        // 打开登录模态框
+        loginBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            loginModal.classList.add('active');
+        });
+
+        // 打开注册模态框
+        registerBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            registerModal.classList.add('active');
+        });
+
+        // 关闭模态框
+        closeBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                loginModal.classList.remove('active');
+                registerModal.classList.remove('active');
+            });
+        });
+
+        // 点击模态框外部关闭
+        window.addEventListener('click', function(e) {
+            if (e.target === loginModal) {
+                loginModal.classList.remove('active');
+            }
+            if (e.target === registerModal) {
+                registerModal.classList.remove('active');
+            }
+        });
+
+        // 切换到注册
+        switchRegister.addEventListener('click', function(e) {
+            e.preventDefault();
+            loginModal.classList.remove('active');
+            registerModal.classList.add('active');
+        });
+
+        // 切换到登录
+        switchLogin.addEventListener('click', function(e) {
+            e.preventDefault();
+            registerModal.classList.remove('active');
+            loginModal.classList.add('active');
+        });
+
+        // 登录表单提交
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = this.querySelector('input[type="text"]').value;
+            const password = this.querySelector('input[type="password"]').value;
+            
+            if (username && password) {
+                alert('登录成功！欢迎回来，' + username + '！');
+                loginModal.classList.remove('active');
+                // 这里可以添加登录后的逻辑，比如显示用户信息
+            }
+        });
+
+        // 注册表单提交
+        registerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = this.querySelectorAll('input[type="text"]')[0].value;
+            const password = this.querySelectorAll('input[type="password"]')[0].value;
+            const confirmPassword = this.querySelectorAll('input[type="password"]')[1].value;
+            
+            if (username && password && confirmPassword) {
+                if (password === confirmPassword) {
+                    alert('注册成功！欢迎加入我们，' + username + '！');
+                    registerModal.classList.remove('active');
+                    // 这里可以添加注册后的逻辑
+                } else {
+                    alert('两次输入的密码不一致，请重新输入！');
+                }
+            }
+        });
+    });
+</script>
+
+<!-- 登录模态框 -->
+<div class="modal login-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>用户登录</h3>
+            <span class="close-btn">&times;</span>
+        </div>
+        <div class="modal-body">
+            <form class="login-form">
+                <div class="form-group">
+                    <label>用户名</label>
+                    <input type="text" placeholder="请输入用户名" required>
+                </div>
+                <div class="form-group">
+                    <label>密码</label>
+                    <input type="password" placeholder="请输入密码" required>
+                </div>
+                <button type="submit" class="btn btn-primary">登录</button>
+                <p class="form-footer">还没有账号？<a href="#" class="switch-register">立即注册</a></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- 注册模态框 -->
+<div class="modal register-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>用户注册</h3>
+            <span class="close-btn">&times;</span>
+        </div>
+        <div class="modal-body">
+            <form class="register-form">
+                <div class="form-group">
+                    <label>用户名</label>
+                    <input type="text" placeholder="请输入用户名" required>
+                </div>
+                <div class="form-group">
+                    <label>密码</label>
+                    <input type="password" placeholder="请输入密码" required>
+                </div>
+                <div class="form-group">
+                    <label>确认密码</label>
+                    <input type="password" placeholder="请确认密码" required>
+                </div>
+                <button type="submit" class="btn btn-primary">注册</button>
+                <p class="form-footer">已有账号？<a href="#" class="switch-login">立即登录</a></p>
+            </form>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
